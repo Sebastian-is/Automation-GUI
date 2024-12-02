@@ -72,6 +72,9 @@ public class CountdownTodate {
     @FindBy(css = ".picked-year")
     private WebElement calendarYear;
 
+    @FindBy(xpath = "//div[contains(@class, 'fixed')]//h1[contains(text(), 'Live Countdown Timer With Animations')]")
+    private WebElement titlePage;
+
     public int selectRandomTimerDesign() {
         Random random = new Random();
         int randomIndex = random.nextInt(timerDesigns.size());
@@ -153,13 +156,18 @@ public class CountdownTodate {
         minute(dateMinute);
         second(dateSecond);
         location(dateLocation);
-        actor.click(createCountdownButton);
-        actor.click(createCountdownButton);
+        if (isTitlePresent()){
+            actor.click(createCountdownButton);
+        }
     }
 
     public FinalCountdown finalCountdown(String eventName, String dateHour, String dateMinute, String dateSecond, String dateLocation){
         fillDateData(eventName,dateHour,dateMinute,dateSecond,dateLocation);
         return new FinalCountdown(driver);
+    }
+
+    public boolean isTitlePresent(){
+        return actor.isVisible(titlePage);
     }
 
 

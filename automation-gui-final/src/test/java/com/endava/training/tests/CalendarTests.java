@@ -80,7 +80,7 @@ public class CalendarTests {
         String initialHours = cleanValue(finalCountdown.getHours());
         String initialMinutes = cleanValue(finalCountdown.getMinutes());
         String initialSeconds = cleanValue(finalCountdown.getSeconds());
-        
+
         assertTrue(finalCountdown.isTimerDecreased(initialDays, initialHours, initialMinutes, initialSeconds));
     }
 
