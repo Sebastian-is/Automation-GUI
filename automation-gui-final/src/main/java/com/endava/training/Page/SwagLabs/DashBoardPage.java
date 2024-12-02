@@ -92,7 +92,7 @@ public class DashBoardPage {
 
         List<WebElement> availableProducts = products.stream()
                 .filter(product -> !product.findElements(By.cssSelector(".btn.btn_primary.btn_small.btn_inventory")).isEmpty())
-                .toList();
+                .collect(Collectors.toList());  // Usamos Collectors.toList() en lugar de toList()
 
         if (availableProducts.isEmpty()) {
             throw new IllegalStateException("No hay productos disponibles para añadir al carrito.");
@@ -106,6 +106,7 @@ public class DashBoardPage {
 
         System.out.println("Añadido producto #" + (randomIndex + 1));
     }
+
 
 
 

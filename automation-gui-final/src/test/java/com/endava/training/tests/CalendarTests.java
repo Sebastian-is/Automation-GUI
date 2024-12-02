@@ -50,19 +50,15 @@ public class CalendarTests {
 
     @Test
     public void timerToDate() {
-        // Paso 1: Navegar al temporizador
         calendarStartPage.hoverTimers();
         CountdownTodate countdownTodate = calendarStartPage.goToCountdownToDate();
 
-        // Paso 2: Seleccionar un diseño de temporizador aleatorio
         int selectedIndex = countdownTodate.selectRandomTimerDesign();
         WebElement selectedDesign = countdownTodate.getTimerDesign(selectedIndex);
         String classes = selectedDesign.getAttribute("class");
 
-        // Verificar que el diseño seleccionado esté activo
         assertTrue(classes.contains("active"));
 
-        // Paso 3: Configurar la fecha y hora del evento
         countdownTodate.clickCalendar();
         countdownTodate.clickYear();
         countdownTodate.click2025();
@@ -70,10 +66,8 @@ public class CalendarTests {
         countdownTodate.clickFebruary();
         countdownTodate.click13();
 
-        // Obtener datos válidos de prueba
         CalendarDate validDate = (CalendarDate) dateData.getData(DATE, CalendarDate.class);
 
-        // Crear el temporizador final
         FinalCountdown finalCountdown = countdownTodate.finalCountdown(
                 validDate.getEvent_name(),
                 validDate.getHour(),
@@ -82,17 +76,11 @@ public class CalendarTests {
                 validDate.getLocation()
         );
 
-        // Paso 4: Capturar los valores iniciales del temporizador
         String initialDays = cleanValue(finalCountdown.getDays());
-        System.out.println("Initial Days: " + initialDays);
         String initialHours = cleanValue(finalCountdown.getHours());
-        System.out.println("Initial Hours: " + initialHours);
         String initialMinutes = cleanValue(finalCountdown.getMinutes());
-        System.out.println("Initial Minutes: " + initialMinutes);
         String initialSeconds = cleanValue(finalCountdown.getSeconds());
-        System.out.println("Initial Seconds: " + initialSeconds);
-
-        // Paso 5: Verificar que el temporizador ha disminuido
+        
         assertTrue(finalCountdown.isTimerDecreased(initialDays, initialHours, initialMinutes, initialSeconds));
     }
 
