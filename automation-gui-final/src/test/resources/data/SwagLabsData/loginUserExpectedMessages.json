@@ -1,0 +1,8 @@
+{
+  "success_login": {
+    "message": "Logged In Successfully"
+  },
+  "invalid_user_login":{
+  "message": "invalid user"
+  }
+}
