@@ -92,39 +92,39 @@ public class CountdownTodate {
     }
 
     public void clickCalendar() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(calendarButton));  // Espera a que el calendario sea clickeable
-        actor.click(calendarButton);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(calendarButton));
+        actor.click(calendarButton);
     }
 
     public void clickMonth() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(calendarMonth));  // Espera a que el mes sea clickeable
-        actor.click(calendarMonth);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(calendarMonth));
+        actor.click(calendarMonth);
     }
 
     public void clickFebruary() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(februaryMonth));  // Espera a que febrero sea clickeable
-        actor.click(februaryMonth);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(februaryMonth));
+        actor.click(februaryMonth);
     }
 
     public void click13() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(day13));  // Espera a que el día 13 sea clickeable
-        actor.click(day13);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(day13));
+        actor.click(day13);
     }
 
     public void clickYear() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(calendarYear));  // Espera a que el año sea clickeable
-        actor.click(calendarYear);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(calendarYear));
+        actor.click(calendarYear);
     }
 
     public void click2025() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Espera de 30 segundos
-        wait.until(ExpectedConditions.elementToBeClickable(year2025));  // Espera a que el año 2025 sea clickeable
-        actor.click(year2025);  // Realiza el click
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(year2025));
+        actor.click(year2025);
     }
 
     public void hour(String dateHour){

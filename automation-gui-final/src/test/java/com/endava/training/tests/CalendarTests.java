@@ -96,11 +96,10 @@ public class CalendarTests {
         assertTrue(finalCountdown.isTimerDecreased(initialDays, initialHours, initialMinutes, initialSeconds));
     }
 
-    // Método de limpieza de valores
-    private String cleanValue(String text) {
-        return text.replaceAll("\\D+", ""); // Elimina todo lo que no sea un dígito
-    }
 
+    private String cleanValue(String text) {
+        return text.replaceAll("\\D+", "");
+    }
 
     @Test
     public void worldClockAlphabeticOrder(){
@@ -114,7 +113,6 @@ public class CalendarTests {
         assertTrue(worldClock.alphabeticalOrder());
 
     }
-
 
     @AfterEach
     public void tearDown() {

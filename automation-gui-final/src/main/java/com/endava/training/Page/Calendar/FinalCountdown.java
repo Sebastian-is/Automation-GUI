@@ -55,14 +55,13 @@ public class FinalCountdown {
     }
 
     private String cleanValue(String text) {
-        return text.replaceAll("\\D+", ""); // Elimina todo lo que no sea un dígito.
+        return text.replaceAll("\\D+", "");
     }
 
 
 
     public boolean isTimerDecreased(String initialDays, String initialHours, String initialMinutes, String initialSeconds) {
         try {
-            // Espera hasta que al menos uno de los valores cambie.
             boolean hasChanged = wait.until(driver -> {
                 String currentDays = cleanValue(getDays());
                 String currentHours = cleanValue(getHours());
@@ -75,7 +74,6 @@ public class FinalCountdown {
                         !currentSeconds.equals(initialSeconds);
             });
 
-            // Imprime los valores iniciales y actuales para depuración.
             String finalDays = cleanValue(getDays());
             String finalHours = cleanValue(getHours());
             String finalMinutes = cleanValue(getMinutes());
@@ -84,12 +82,10 @@ public class FinalCountdown {
             System.out.println("Initial Values: Days=" + initialDays + ", Hours=" + initialHours + ", Minutes=" + initialMinutes + ", Seconds=" + initialSeconds);
             System.out.println("Final Values: Days=" + finalDays + ", Hours=" + finalHours + ", Minutes=" + finalMinutes + ", Seconds=" + finalSeconds);
 
-            // Devuelve el resultado directamente (ya sabemos que al menos uno cambió).
             System.out.println("Has any timer field changed? " + hasChanged);
             return hasChanged;
 
         } catch (Exception e) {
-            // Si ocurre un error, imprime el stack trace y devuelve false.
             e.printStackTrace();
             return false;
         }
