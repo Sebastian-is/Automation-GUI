@@ -1,6 +1,7 @@
 package com.endava.training.Page.Calendar;
 
 import com.endava.training.actions.WebAction;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,12 +39,33 @@ public class FinalCountdown {
     @FindBy(css = ".csvg-countdown__content .csvg-digit[data-tad-bind='seconds']")
     private WebElement secondsElement;
 
+    @FindBy(css = ".csvg-controls")
+    private WebElement timerMenu;
+
     public String getDays(){
         return actor.getText(daysElement);
     }
 
     public String getHours(){
         return actor.getText(hoursElement);
+    }
+
+    public boolean isMenuVisible(){
+        return actor.isVisible(timerMenu);
+    }
+
+    public WebElement menu(){
+        return timerMenu;
+    }
+
+    public boolean waitUntilElementVisible(WebElement element, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 
     public String getMinutes(){

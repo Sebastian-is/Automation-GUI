@@ -10,6 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static com.endava.training.constants.TestDataConstants.DATE;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -75,6 +79,12 @@ public class CalendarTests {
                 validDate.getSecond(),
                 validDate.getLocation()
         );
+
+        /*
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(finalCountdown.menu()));
+        
+         */
 
         String initialDays = cleanValue(finalCountdown.getDays());
         String initialHours = cleanValue(finalCountdown.getHours());

@@ -156,9 +156,8 @@ public class CountdownTodate {
         minute(dateMinute);
         second(dateSecond);
         location(dateLocation);
-        if (isTitlePresent()){
-            actor.click(createCountdownButton);
-        }
+        actor.click(createCountdownButton);
+        actor.click(createCountdownButton);
     }
 
     public FinalCountdown finalCountdown(String eventName, String dateHour, String dateMinute, String dateSecond, String dateLocation){
